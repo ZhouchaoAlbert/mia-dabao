@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="头文件\Buf">
+      <UniqueIdentifier>{f99942c6-7230-47fe-b591-5865b05d4916}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\Path">
+      <UniqueIdentifier>{6feefabd-6e0d-4291-83e2-d78f1946efea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Str">
+      <UniqueIdentifier>{800517d2-2ced-4353-ae1c-b3220f8fee41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Msg">
+      <UniqueIdentifier>{089a8d3e-041f-458c-8a42-591055c7bab1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Invoke">
+      <UniqueIdentifier>{77489931-0614-4b8f-9739-8199d4d581a0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Invoke\Event">
+      <UniqueIdentifier>{37562326-4d2c-4a7a-9024-c84711c953d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Invoke\PtrArray">
+      <UniqueIdentifier>{d6b7aabe-41b3-41d7-838d-d808d6241ac1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Timer">
+      <UniqueIdentifier>{35ef1d13-8517-42cd-912d-da13439d4216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Lock">
+      <UniqueIdentifier>{904c6917-59fc-43af-9acd-67c8609e4b41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\ThreadPool">
+      <UniqueIdentifier>{dc34eef6-cd5b-4a5e-bd5e-ac8250723798}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Sink">
+      <UniqueIdentifier>{61afe184-517c-49bb-a96b-ddf46f93d399}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Buffer.cpp">
+      <Filter>头文件\Buf</Filter>
+    </ClCompile>
+    <ClCompile Include="ByteIOS.cpp">
+      <Filter>头文件\Buf</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilPath.cpp">
+      <Filter>头文件\Path</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilString.cpp">
+      <Filter>头文件\Str</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgObject.cpp">
+      <Filter>头文件\Msg</Filter>
+    </ClCompile>
+    <ClCompile Include="MsgObjectMgr.cpp">
+      <Filter>头文件\Msg</Filter>
+    </ClCompile>
+    <ClCompile Include="UtilMsg.cpp">
+      <Filter>头文件\Msg</Filter>
+    </ClCompile>
+    <ClCompile Include="MyPtrArray.cpp">
+      <Filter>头文件\Invoke\PtrArray</Filter>
+    </ClCompile>
+    <ClCompile Include="TimeMgr.cpp">
+      <Filter>头文件\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="TimerApi.cpp">
+      <Filter>头文件\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="HookEvent.cpp">
+      <Filter>头文件\Invoke\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="EventMgr.cpp">
+      <Filter>头文件\Invoke\Event</Filter>
+    </ClCompile>
+    <ClCompile Include="KernelObjApi.cpp">
+      <Filter>头文件\Lock</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPoolApi.cpp">
+      <Filter>头文件\ThreadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadObjMgr.cpp">
+      <Filter>头文件\ThreadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadObject.cpp">
+      <Filter>头文件\ThreadPool</Filter>
+    </ClCompile>
+    <ClCompile Include="SinkApi.cpp">
+      <Filter>头文件\Sink</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Include\UtilPath.h">
+      <Filter>头文件\Path</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\UtilString.h">
+      <Filter>头文件\Str</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\Buffer.h">
+      <Filter>头文件\Buf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\ByteIOS.h">
+      <Filter>头文件\Buf</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgObject.h">
+      <Filter>头文件\Msg</Filter>
+    </ClInclude>
+    <ClInclude Include="MsgObjectMgr.h">
+      <Filter>头文件\Msg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\UtilMsg.h">
+      <Filter>头文件\Msg</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\EventDefine.h">
+      <Filter>头文件\Invoke</Filter>
+    </ClInclude>
+    <ClInclude Include="MyPtrArray.h">
+      <Filter>头文件\Invoke\PtrArray</Filter>
+    </ClInclude>
+    <ClInclude Include="TimeMgr.h">
+      <Filter>头文件\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\TimerApi.h">
+      <Filter>头文件\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="EventMgr.h">
+      <Filter>头文件\Invoke\Event</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\KernelObjApi.h">
+      <Filter>头文件\Lock</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadObjMgr.h">
+      <Filter>头文件\ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadObject.h">
+      <Filter>头文件\ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\ThreadPoolApi.h">
+      <Filter>头文件\ThreadPool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\SinkApi.h">
+      <Filter>头文件\Sink</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Include\HookEvent.h">
+      <Filter>头文件\Invoke\Event</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
