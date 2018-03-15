@@ -3,6 +3,8 @@
 using namespace  DuiLib;
 #include <string>
 using namespace std;
+#include"..\TerminalOut.h"
+
 
 class CMainFrame : public WindowImplBase
 {
@@ -25,6 +27,7 @@ private:
 	CTabLayoutUI* m_pTreeList;
 	CEditUI*      m_pEdtObsBatPath;
 	HICON         m_hIcon;
+	CTerminalOut  m_out;
 
 };
 

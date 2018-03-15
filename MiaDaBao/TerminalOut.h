@@ -5,6 +5,7 @@
 using namespace std;
 using namespace ATL;
 using namespace DuiLib;
+#include"TimerApi.h"
 
 class CTerminalOut
 {
@@ -19,9 +20,12 @@ public:
 	}
 
 	void PipeCmdLine();
+	void OnTimer(void *pParam1, void *pParam2, void *pParam3);
 private:
 	CString      m_strPath;
 	CRichEditUI* m_pRichEditUI;
 
+	CTimerSink	 m_tmRun;  //¶¨Ê±Æ÷
+	std::vector<CString> m_vecOutInfo;
 };
 

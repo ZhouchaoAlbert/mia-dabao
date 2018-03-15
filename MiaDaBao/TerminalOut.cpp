@@ -4,6 +4,8 @@
 
 CTerminalOut::CTerminalOut()
 {
+	m_tmRun.Register(_T("Timer"), this, &CTerminalOut::OnTimer);
+	
 }
 
 
@@ -61,7 +63,12 @@ void CTerminalOut::PipeCmdLine()
 			buf[bytesRead - 1] = 0;
 			CStringA strTemp(buf);
 			ATL::CA2W szTemp(strTemp, CP_UTF8);
-			m_pRichEditUI->AppendText(szTemp);
+			if (!m_tmRun.IsWork())
+			{
+				m_tmRun.Start(1000);
+			}
+			m_vecOutInfo.push_back(szTemp.m_psz);
+
 		}
 		//Windows下 CMD 输出默认为GBK
 		//Util::String::A_2_W(strTemp, strOutput);
@@ -70,4 +77,19 @@ void CTerminalOut::PipeCmdLine()
 		CloseHandle(piProcInfo.hThread);
 	} while (0);
 
+}
+
+void CTerminalOut::OnTimer(void *pParam1, void *pParam2, void *pParam3)
+{
+	std::vector<CString>::iterator iter= m_vecOutInfo.begin();
+	if (iter != m_vecOutInfo.end())
+	{
+		m_pRichEditUI->AppendText(*iter);
+		m_vecOutInfo.erase(iter);
+	}
+	else
+	{
+		m_tmRun.Stop();
+	}
+	
 }

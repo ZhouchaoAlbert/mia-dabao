@@ -1,7 +1,7 @@
 #include "MainFrame.h"
 #include "Singleton.h"
 #include "BrowApi.h"
-#include"..\TerminalOut.h"
+
 CMainFrame::CMainFrame()
 {
 }
@@ -84,9 +84,9 @@ void CMainFrame::Notify(TNotifyUI& msg)
 				return;
 			}
 			CString strText  = m_pEdtObsBatPath->GetText();
-			CTerminalOut out;
-			out.Init((LPTSTR)strText.GetString(), pRichEdit);
-			out.PipeCmdLine();
+			
+			m_out.Init((LPTSTR)strText.GetString(), pRichEdit);
+			m_out.PipeCmdLine();
 		}
 		else if (szName == _T("btn_max"))
 		{
