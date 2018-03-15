@@ -6,8 +6,8 @@ using namespace std;
 using namespace ATL;
 using namespace DuiLib;
 #include"TimerApi.h"
-
-class CTerminalOut
+#include "UtilMsg.h"
+class CTerminalOut : public Util::Msg::CMsgBase
 {
 public:
 	CTerminalOut();
@@ -20,8 +20,11 @@ public:
 	}
 
 	void PipeCmdLine();
-	void OnThreadProc();
+	static UINT32 WINAPI  ThreadProc(void* pVoid);
+	void Run();
 	void OnTimer(void *pParam1, void *pParam2, void *pParam3);
+	void OnMessage(UINT32 uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle);
+
 private:
 	CString      m_strPath;
 	CRichEditUI* m_pRichEditUI;

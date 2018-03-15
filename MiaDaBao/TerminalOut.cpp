@@ -1,11 +1,17 @@
 #include "TerminalOut.h"
 #include<thread>
 
+#define WM_TASK_FINISH     WM_USER+1001			        //任务执行结束消息
 
+struct ST_OUTINFO
+{
+	CString strInfo;
+};
 CTerminalOut::CTerminalOut()
 {
 	m_tmRun.Register(_T("Timer"), this, &CTerminalOut::OnTimer);
-	
+	AddMsg(WM_TASK_FINISH);
+	Start();
 }
 
 
@@ -21,13 +27,20 @@ CTerminalOut::~CTerminalOut()
 
 void CTerminalOut::PipeCmdLine()
 {
-	std::thread t(&CTerminalOut::OnThreadProc,this);
-	t.join();
+	UINT32  uiThreadId = 0;
+	HANDLE hThread = (HANDLE)_beginthreadex(NULL, 0, ThreadProc, (void*)this, 0, &uiThreadId);
 }
 
 
-void CTerminalOut::OnThreadProc()
+UINT32 WINAPI  CTerminalOut::ThreadProc(void* pVoid)
 {
+	CTerminalOut *pThreadCallback = static_cast<CTerminalOut *>(pVoid);
+	pThreadCallback->Run();
+	return TRUE;
+}
+
+void CTerminalOut::Run(){
+
 	do
 	{
 		SECURITY_ATTRIBUTES sa;
@@ -70,7 +83,13 @@ void CTerminalOut::OnThreadProc()
 			buf[bytesRead - 1] = 0;
 			CStringA strTemp(buf);
 			ATL::CA2W szTemp(strTemp, CP_UTF8);
-			m_pRichEditUI->AppendText(szTemp);
+
+			ST_OUTINFO* pThreadWork = new ST_OUTINFO;
+			pThreadWork->strInfo = szTemp;
+
+			::PostMessage(GetMsgWnd(), WM_TASK_FINISH, (WPARAM)pThreadWork, (LPARAM)0);
+
+	
 /*			if (!m_tmRun.IsWork())
 			{
 				m_tmRun.Start(1000);
@@ -99,4 +118,15 @@ void CTerminalOut::OnTimer(void *pParam1, void *pParam2, void *pParam3)
 		m_tmRun.Stop();
 	}
 	
+}
+
+void CTerminalOut::OnMessage(UINT32 uMsg, WPARAM wParam, LPARAM lParam, BOOL& bHandle)
+{
+	if (WM_TASK_FINISH == uMsg)
+	{
+		ST_OUTINFO *pWork = (ST_OUTINFO *)wParam;
+		m_pRichEditUI->AppendText(pWork->strInfo);
+		delete pWork;
+		pWork = NULL;
+	}
 }
