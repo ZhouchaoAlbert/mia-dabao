@@ -23,6 +23,8 @@ public:// UI≥ı ºªØ
 	
 private:
 	CTabLayoutUI* m_pTreeList;
+	CEditUI*      m_pEdtObsBatPath;
+	HICON         m_hIcon;
 
 };
 

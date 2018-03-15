@@ -1,7 +1,7 @@
 #include "MainFrame.h"
 #include "Singleton.h"
 #include "BrowApi.h"
-
+#include"..\TerminalOut.h"
 CMainFrame::CMainFrame()
 {
 }
@@ -35,7 +35,12 @@ CControlUI* CMainFrame::CreateControl(LPCTSTR pstrClass)
 
 void CMainFrame::InitWindow()
 {
+	m_hIcon = LoadIcon(CPaintManagerUI::GetInstance(), MAKEINTRESOURCE(101));
+	SetIcon(m_hIcon, TRUE);
+	SetIcon(m_hIcon, FALSE);
 	m_pTreeList = static_cast<CTabLayoutUI*>(m_PaintManager.FindControl(_T("tab_tree_list")));
+	m_pEdtObsBatPath = static_cast<CEditUI*>(m_PaintManager.FindControl(_T("edt_obs_bat_path")));
+	m_pEdtObsBatPath->SetText(_T("E:\\GitHub\\mia-dabao\\test.bat"));
 }
 
 void CMainFrame::OnFinalMessage(HWND hWnd)
@@ -73,7 +78,15 @@ void CMainFrame::Notify(TNotifyUI& msg)
 		}
 		else if (szName == _T("btn_sure"))
 		{
-			
+			CRichEditUI*  pRichEdit = static_cast<CRichEditUI*>(m_PaintManager.FindControl(_T("rich_info")));
+			if (NULL == pRichEdit)
+			{
+				return;
+			}
+			CString strText  = m_pEdtObsBatPath->GetText();
+			CTerminalOut out;
+			out.Init((LPTSTR)strText.GetString(), pRichEdit);
+			out.PipeCmdLine();
 		}
 		else if (szName == _T("btn_max"))
 		{

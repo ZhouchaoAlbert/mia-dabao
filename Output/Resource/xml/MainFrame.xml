@@ -25,85 +25,35 @@
 			<VerticalLayout  width="128" bkcolor="#FFFAFAFA">
 				<!--基本设置-->
 				<HorizontalLayout height="32">
-					<Option name="opt-mia-obs" text="米亚obs打包" textpadding="20,0,0,0" align="left" valign="vcenter" selected="true" group="tab_header" textcolor="#FF000000" hottextcolor="#FF000000" selectedtextcolor="#FFFFFFFF" bkcolor="#FFFAFAFA" hotbkcolor="FFF2F2F2" selectedbkcolor="#FF0FC88D"/>
+					<Option name="opt-mia-obs" text="米亚打包" textpadding="20,0,0,0" align="left" valign="vcenter" selected="true" group="tab_header" textcolor="#FF000000" hottextcolor="#FF000000" selectedtextcolor="#FFFFFFFF" bkcolor="#FFFAFAFA" hotbkcolor="FFF2F2F2" selectedbkcolor="#FF0FC88D"/>
 				</HorizontalLayout>
 				<!--热键-->
 				<HorizontalLayout height="32">
-					<Option name="opt-mia-menten" text="米亚menten打包" textpadding="20,0,0,0" align="left" valign="vcenter" group="tab_header" textcolor="#FF000000" hottextcolor="#FF000000" selectedtextcolor="#FFFFFFFF" bkcolor="#FFFAFAFA" hotbkcolor="FFF2F2F2" selectedbkcolor="#FF0FC88D"/>
+					<Option name="opt-mia-menten" text="软件作者" textpadding="20,0,0,0" align="left" valign="vcenter" group="tab_header" textcolor="#FF000000" hottextcolor="#FF000000" selectedtextcolor="#FFFFFFFF" bkcolor="#FFFAFAFA" hotbkcolor="FFF2F2F2" selectedbkcolor="#FF0FC88D"/>
 				</HorizontalLayout>
 			</VerticalLayout>
 			<!--分割条-->
 			<Label width="1" bkcolor="#FFE5E5E5"/>
 			<!--右边设置树-->
 			<TabLayout name="tab_tree_list">
-				<VerticalLayout name="ver_mia_obs_layout" inset="35,10,25,0" vscrollbar="true">
-					<!--文件管理-->
-					<VerticalLayout height="185">
-						<Label text="脚本路径:" align="left" valign="top" textpadding="0,1,0,0"/>
-						<Control height="10" />
-						<Edit name="edt_obs_bat_path" height="22" padding="30,0,0,0" readonly="true"/>
-						<Control height="10" />
-						<HorizontalLayout height="30" padding="30,0,0,0">
-							<Control  />
-						    <Button name="btn_sure" text="确定" width="200" textcolor="#FFFFFFFF" normalimage="file='material/login/button.png' corner='5,5,5,5' source='0,0,80,36'" hotimage="file='material/login/button.png' corner='5,5,5,5' source='0,36,80,72'" pushedimage="file='material/login/button.png' corner='5,5,5,5' source='0,72,80,108'" />
-		
-						</HorizontalLayout>
-						<Control height="10" />
-						<RichEdit name="rich_info" inset="1,0,0,0" multiline="true" vscrollbar="true" autovscroll="true" bkcolor="#FFF2F2F2" readonly="true" />
-					</VerticalLayout>
-						
+				<VerticalLayout name="ver_mia_obs_layout" inset="10,10,10,0" vscrollbar="true">
+					<Label text="脚本路径:" align="left" valign="top" textpadding="0,1,0,0"/>
+					<Control height="10" />
+					<Edit name="edt_obs_bat_path" height="22" padding="0,0,0,0" readonly="true"/>
+					<Control height="10" />
+					<HorizontalLayout height="30" padding="30,0,0,0">
+						<Control  />
+						<Button name="btn_sure" text="确定" width="100" textcolor="#FFFFFFFF" normalimage="file='material/login/button.png' corner='5,5,5,5' source='0,0,80,36'" hotimage="file='material/login/button.png' corner='5,5,5,5' source='0,36,80,72'" pushedimage="file='material/login/button.png' corner='5,5,5,5' source='0,72,80,108'" />
+	
+					</HorizontalLayout>
+					<Control height="10" />
+					<RichEdit name="rich_info" inset="1,0,0,0" multiline="true" vscrollbar="true" autovscroll="true" bkcolor="#FFF2F2F2" readonly="true" />
+			
 				</VerticalLayout>
-				<VerticalLayout name="ver_mia_menten_layout" inset="35,20,25,0" vscrollbar="true">
+				
+				<VerticalLayout name="ver_mia_layout" inset="35,20,25,0" vscrollbar="true">
 					<VerticalLayout >
-						<Label text="热键 - 你可以通过点击选择你要更改的热键" align="left" valign="top" padding="0,0,0,12"/>
-						<!--全局热键配置-->
-						<VerticalLayout height="400" inset="30,0,0,0,">
-								
-							<HorizontalLayout height="25" padding="0,0,0,12">
-								<Label text="捕捉屏幕 " align="left" autocalcwidth="true" valign="vcenter" />
-								<Control width="30"/>
-								<Combo name="catch_screen_mod" dropboxsize="0,130" width="100" height="22" textpadding="5,2,21,2"  itemtextpadding="5,0,0,0" arrowwidth="21" normalarrow="material/login/down.png" droparrow="material/login/up.png">
-									<ListLabelElement text="Ctrl+Alt+" selected="true" height="21" />
-									<ListLabelElement text="Ctrl+" height="21" />
-									<ListLabelElement text="Alt+" height="21" />
-								</Combo>
-								<Control width="10"/>
-								<Combo name="catch_screen_vkcode" width="45" height="22" dropboxsize="0,130" textpadding="5,2,21,2" itemtextpadding="5,0,0,0"  arrowwidth="21" normalarrow="material/login/down.png" droparrow="material/login/up.png"/>
-								<Control width="20"/>
-								<Label name="catch_screen_hotkey_status" text="正常" align="left" autocalcwidth="true" valign="vcenter" />
-							</HorizontalLayout>
-							
-							<HorizontalLayout height="25" padding="0,0,0,12">
-								<Label text="打开主面板 " align="left" autocalcwidth="true" valign="vcenter" />
-								<Control width="20"/>
-								<Combo name="open_panel_mod" dropboxsize="0,130" width="100" height="22" textpadding="5,2,21,2" itemtextpadding="5,0,0,0" arrowwidth="21" normalarrow="material/login/down.png" droparrow="material/login/up.png">
-									<ListLabelElement text="Ctrl+Alt+" selected="true" height="21" />
-									<ListLabelElement text="Ctrl+" height="21" />
-									<ListLabelElement text="Alt+" height="21" />
-								</Combo>
-								<Control width="10"/>
-								<Combo name="open_panel_vkcode" width="45" height="22" dropboxsize="0,130" textpadding="5,2,21,2" itemtextpadding="5,0,0,0"  arrowwidth="21" normalarrow="material/login/down.png" droparrow="material/login/up.png"/>
-								<Control width="20"/>
-								<Label name="open_panel_hotkey_status" text="正常" align="left" autocalcwidth="true" valign="vcenter" />
-							</HorizontalLayout>
-
-							<HorizontalLayout height="25" padding="0,0,0,12">
-								<Label text="发送消息 " align="left" autocalcwidth="true" valign="vcenter" />
-								<Control width="30"/>
-								<Combo name="quick_key_enter" dropboxsize="0,130" width="155" height="22" textpadding="5,2,21,2" itemtextpadding="5,0,0,0" arrowwidth="21" normalarrow="material/login/down.png" droparrow="material/login/up.png">
-									<ListLabelElement text="Ctrl+Enter键发送" selected="true" height="21" />
-									<ListLabelElement text="Enter键发送" height="21" />
-								</Combo>
-								<Control width="20"/>
-								<Label name="send_msg_hotkey_status" text="正常" align="left" autocalcwidth="true" valign="vcenter" />
-							</HorizontalLayout>
-							<Control height="20" />
-							<HorizontalLayout height="30" width="290">
-								<CheckBox name="hotkey_conflit_checkbox" padding="0,7,0,7" text="热键与其它软件有冲突时提醒" textpadding="2,0,0,0" width="195" height="15"/> 
-								<Button name="btn_reset_default_hotkey" padding="0,1,0,1" text="恢复默认热键" width="90" textcolor="#FF000000" normalimage="file='material/SysConfig/sys_config_btn.png' corner='5,5,5,5' source='0,0,64,25'" hotimage="file='material/SysConfig/sys_config_btn.png' corner='5,5,5,5' source='0,25,64,50'" pushedimage="file='material/SysConfig/sys_config_btn.png' corner='5,5,5,5' source='0,50,64,75'" />
-							</HorizontalLayout>
-							<Control />
-						</VerticalLayout>
+						<Label text="O(∩_∩)O哈哈~" align="left" valign="top" padding="0,0,0,12"/>
 					</VerticalLayout>
 				</VerticalLayout>
 			</TabLayout>

@@ -238,10 +238,19 @@
     <ClCompile Include="Frame\LoginFrame.cpp" />
     <ClCompile Include="Frame\MainFrame.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="TerminalOut.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Frame\LoginFrame.h" />
     <ClInclude Include="Frame\MainFrame.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="TerminalOut.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="MiaDaBao.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="DMI.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
