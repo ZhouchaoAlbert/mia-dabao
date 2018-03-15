@@ -44,6 +44,8 @@ void CloginFrame::InitWindow()
 	m_edtAccount = static_cast<CEditUI*>(m_PaintManager.FindControl(_T("edt_account")));
 	m_edtPwd = static_cast<CEditUI*>(m_PaintManager.FindControl(_T("edt_pwd")));
 	m_btnLogin = static_cast<CButtonUI*>(m_PaintManager.FindControl(_T("btn_login")));
+	m_edtAccount->SetText(_T("zc"));
+	m_edtPwd->SetText(_T("11"));
 }
 
 void CloginFrame::Notify(TNotifyUI& msg)

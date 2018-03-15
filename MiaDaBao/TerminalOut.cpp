@@ -1,5 +1,5 @@
 #include "TerminalOut.h"
-
+#include<thread>
 
 
 CTerminalOut::CTerminalOut()
@@ -20,6 +20,13 @@ CTerminalOut::~CTerminalOut()
 
 
 void CTerminalOut::PipeCmdLine()
+{
+	std::thread t(&CTerminalOut::OnThreadProc,this);
+	t.join();
+}
+
+
+void CTerminalOut::OnThreadProc()
 {
 	do
 	{
@@ -63,12 +70,13 @@ void CTerminalOut::PipeCmdLine()
 			buf[bytesRead - 1] = 0;
 			CStringA strTemp(buf);
 			ATL::CA2W szTemp(strTemp, CP_UTF8);
-			if (!m_tmRun.IsWork())
+			m_pRichEditUI->AppendText(szTemp);
+/*			if (!m_tmRun.IsWork())
 			{
 				m_tmRun.Start(1000);
 			}
 			m_vecOutInfo.push_back(szTemp.m_psz);
-
+*/
 		}
 		//Windows下 CMD 输出默认为GBK
 		//Util::String::A_2_W(strTemp, strOutput);
@@ -76,7 +84,6 @@ void CTerminalOut::PipeCmdLine()
 		CloseHandle(piProcInfo.hProcess);
 		CloseHandle(piProcInfo.hThread);
 	} while (0);
-
 }
 
 void CTerminalOut::OnTimer(void *pParam1, void *pParam2, void *pParam3)

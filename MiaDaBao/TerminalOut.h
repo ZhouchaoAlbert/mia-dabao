@@ -20,6 +20,7 @@ public:
 	}
 
 	void PipeCmdLine();
+	void OnThreadProc();
 	void OnTimer(void *pParam1, void *pParam2, void *pParam3);
 private:
 	CString      m_strPath;
@@ -27,5 +28,6 @@ private:
 
 	CTimerSink	 m_tmRun;  //¶¨Ê±Æ÷
 	std::vector<CString> m_vecOutInfo;
+
 };
 
